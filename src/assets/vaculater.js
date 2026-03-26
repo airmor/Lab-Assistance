@@ -1901,7 +1901,7 @@ function standardByBit(str, bit) {
             n = integral + 1;
         } else {
             // 当小数部分正好为0.5时
-            if (integral % 2 === 0 && n - integral === 0.5) {
+            if (integral % 2 === 0 && Math.abs(n - integral - 0.5) < EPS) {
                 // 如果整数部分是偶数，并且除0.5外没有其他小数
                 n = integral;
             } else {
