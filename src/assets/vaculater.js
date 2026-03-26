@@ -1893,10 +1893,11 @@ function standardByBit(str, bit) {
         let n = num * factor;
         let decimal = n - Math.floor(n);
         let integral = Math.floor(n);
+        const EPS = 1e-12;
 
-        if (decimal < 0.5) {
+        if (decimal < 0.5 - EPS) {
             n = integral;
-        } else if (decimal > 0.5) {
+        } else if (decimal > 0.5 + EPS) {
             n = integral + 1;
         } else {
             // 当小数部分正好为0.5时
